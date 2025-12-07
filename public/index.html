@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo CRUD – Node + SQLite</title>
+  <script src="script.js" defer></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; }
+    input, button, select { margin: 4px; padding: 6px; }
+    li { margin: 4px 0; }
+    .done { text-decoration: line-through; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <h1>ToDo CRUD – Node.js + SQLite</h1>
+
+  <section>
+    <h2>Add / Edit Task</h2>
+    <form id="taskForm" onsubmit="event.preventDefault(); saveTask();">
+      <input type="hidden" id="taskId">
+
+      <input type="text" id="taskTitle" placeholder="Title" required>
+      <input type="text" id="taskDesc" placeholder="Description">
+
+      <input type="number" id="taskPriority" placeholder="Priority (1–5)" min="1" max="5" value="3">
+      <input type="date" id="taskDeadline">
+
+      <label>
+        <input type="checkbox" id="taskDone">
+        Done
+      </label>
+
+      <button type="submit">Save</button>
+      <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Task List</h2>
+    <ul id="taskList"></ul>
+  </section>
+</body>
+</html>
